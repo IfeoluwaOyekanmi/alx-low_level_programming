@@ -1,20 +1,25 @@
-#include "main.h"
+#include "holberton.h"
 /**
- * print_last_digit - a function that prints the last digit of a number
- * @nld: number's last digit result
- * Return: value of the last digit
+ * jack_bauer - function that prints every minute of the day, 24 hour clock
+ * h = hour, m = minutes
+ * / 10 allows second digit to rotate
+ * for loop breaks before passing 24:00
+ * Return: 24 hour clock line by line
  */
-int print_last_digit(int nld)
+void jack_bauer(void)
 {
-	int pld;
+	int h, m;
 
-	pld = (nld % 10);
-
-	if (pld < 0)
+	for (h = 0; h < 24; h++)
 	{
-		pld = (-1 * pld);
+		for (m = 0; m < 60; m++)
+		{
+			_putchar((h / 10) + '0');
+			_putchar((h % 10) + '0');
+			_putchar(':');
+			_putchar((m / 10) + '0');
+			_putchar((m % 10) + '0');
+			_putchar('\n');
+		}
 	}
-
-	_putchar(pld + '0');
-	return (pld);
 }
